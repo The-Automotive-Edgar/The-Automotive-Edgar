@@ -46,6 +46,7 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   padding: 5px 10px;
+  text-align: center;
 }
 
 nav a:hover {
@@ -83,6 +84,17 @@ footer {
   margin-top: 40px;
 }
 
+/* Prevent text from stretching page */
+li,
+p,
+a,
+h1,
+h2,
+h3 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
 
@@ -97,11 +109,6 @@ footer {
   nav {
     flex-direction: column;
     align-items: center;
-  }
-
-  nav a {
-    width: 100%;
-    text-align: center;
   }
 
   section {
