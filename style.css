@@ -24,13 +24,18 @@ nav {
   background-color: #000;
   text-align: center;
   padding: 10px 0;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 nav a {
   color: #fff;
-  margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
+  padding: 5px 10px;
 }
 
 nav a:hover {
@@ -52,6 +57,7 @@ section {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .gallery img {
@@ -67,23 +73,37 @@ footer {
   margin-top: 40px;
 }
 
-/* Mobile fixes only */
+/* Mobile fixes */
 @media (max-width: 768px) {
 
   body {
     overflow-x: hidden;
   }
 
-  .gallery img {
-    width: 100%;
-  }
-
-  section {
-    width: 95%;
+  header {
+    padding: 25px 15px;
   }
 
   header h1 {
     font-size: 1.5rem;
+  }
+
+  nav {
+    gap: 8px;
+  }
+
+  nav a {
+    font-size: 14px;
+    padding: 4px 8px;
+  }
+
+  section {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .gallery img {
+    width: 100%;
   }
 
 }
