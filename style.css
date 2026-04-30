@@ -84,7 +84,7 @@ footer {
   margin-top: 40px;
 }
 
-/* Prevent text from stretching page */
+/* Prevent text stretching page */
 li,
 p,
 a,
@@ -93,6 +93,12 @@ h2,
 h3 {
   word-wrap: break-word;
   overflow-wrap: break-word;
+}
+
+/* EXTRA FIX for contact page (email/phone wrapping) */
+section p {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* MOBILE */
