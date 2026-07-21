@@ -1,0 +1,368 @@
+/* =========================================================
+   The Automotive Edgar — stylesheet
+   Palette: workshop paper + hazard amber + ink charcoal
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap');
+
+:root {
+  --ink: #1c2024;
+  --steel: #2b323a;
+  --paper: #f7f2e7;
+  --card: #fffdf9;
+  --page-bg: #eee8d9;
+  --amber: #e8a713;
+  --amber-dark: #c68a0a;
+  --rust: #b1492c;
+  --text: #22262b;
+  --text-soft: #5c6169;
+  --line: #ddd4bd;
+}
+
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Work Sans', Arial, sans-serif;
+  background-color: var(--page-bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Oswald', Arial, sans-serif;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  margin-top: 0;
+}
+
+/* ---------- Hazard stripe (signature motif) ---------- */
+.hazard-strip {
+  height: 10px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--ink),
+    var(--ink) 14px,
+    var(--amber) 14px,
+    var(--amber) 28px
+  );
+}
+
+/* ---------- Header ---------- */
+header {
+  background-color: var(--paper);
+  color: var(--ink);
+  padding: 44px 20px 34px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+
+header img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  margin-bottom: 22px;
+}
+
+header h1 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  max-width: 760px;
+  margin: 0 auto 10px;
+  line-height: 1.25;
+}
+
+header p {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--rust);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Plain page headers (cleaning / repairs / contact) */
+header:has(h1):not(:has(img)) {
+  padding: 36px 20px;
+}
+
+/* ---------- Nav ---------- */
+nav {
+  background-color: var(--ink);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #d9dadb;
+  text-decoration: none;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  padding: 16px 22px;
+  border-bottom: 3px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+nav a:hover {
+  color: #fff;
+  background-color: var(--steel);
+  border-bottom-color: var(--amber);
+}
+
+/* ---------- Sections / cards ---------- */
+section {
+  background-color: var(--card);
+  margin: 26px auto;
+  padding: 30px 32px;
+  width: 90%;
+  max-width: 880px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  box-shadow: 0 2px 0 var(--line);
+}
+
+section h2 {
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+  border-bottom: 3px solid var(--amber);
+  display: inline-block;
+}
+
+section p {
+  color: var(--text-soft);
+  max-width: 68ch;
+}
+
+section + section {
+  margin-top: 0;
+}
+
+/* ---------- Price / service lists ---------- */
+section ul {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+}
+
+section ul li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--line);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+section ul li:last-child {
+  border-bottom: none;
+}
+
+section ul li .item-name {
+  position: relative;
+  padding-left: 16px;
+}
+
+section ul li .item-name::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--amber);
+}
+
+section ul li .item-sep {
+  flex: 1;
+  border-bottom: 1px dotted var(--text-soft);
+  opacity: 0.35;
+  margin-bottom: 5px;
+}
+
+section ul li .item-price {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  color: var(--rust);
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* ---------- Open times (contact page) ---------- */
+.hours-list li {
+  justify-content: space-between;
+}
+
+.hours-list .day {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+}
+
+.hours-list .time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.92rem;
+  color: var(--text-soft);
+}
+
+.hours-list li.is-open .time {
+  color: var(--rust);
+  font-weight: 600;
+}
+
+.hours-list li.is-closed .time {
+  color: #9aa0a6;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- Contact details ---------- */
+.contact-details p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.98rem;
+  color: var(--text);
+  display: flex;
+  gap: 8px;
+  margin: 6px 0;
+}
+
+.contact-details strong {
+  font-family: 'Work Sans', Arial, sans-serif;
+  font-weight: 600;
+  color: var(--ink);
+  min-width: 82px;
+}
+
+/* ---------- Gallery ---------- */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+.gallery img {
+  width: 30%;
+  min-width: 230px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: repeating-linear-gradient(
+    -45deg,
+    #e2dbc7,
+    #e2dbc7 12px,
+    #ece6d6 12px,
+    #ece6d6 24px
+  );
+  border: 6px solid #fff;
+  outline: 1px solid var(--line);
+  border-radius: 2px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+  transform: rotate(-1.2deg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery img:nth-child(even) {
+  transform: rotate(1.2deg);
+}
+
+.gallery img:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background-color: var(--ink);
+  color: #c7c9cb;
+  text-align: center;
+  padding: 22px 20px;
+  margin-top: 46px;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+}
+
+/* Prevent text stretching page */
+li, p, a, h1, h2, h3 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* EXTRA FIX for contact page (email/phone wrapping) */
+section p {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.contact-details p,
+.hours-list li {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+
+  header {
+    padding: 30px 16px 24px;
+  }
+
+  header img {
+    max-width: 280px;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  nav a {
+    padding: 13px 16px;
+    font-size: 0.8rem;
+  }
+
+  section {
+    width: 94%;
+    padding: 22px 18px;
+  }
+
+  section ul li {
+    font-size: 0.94rem;
+  }
+
+  .contact-details strong {
+    min-width: 70px;
+  }
+
+  .gallery img {
+    width: 100%;
+    min-width: 0;
+    transform: none;
+  }
+}
